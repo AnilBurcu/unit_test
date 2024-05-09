@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Form = () => {
+  const [isHover, setIsHover] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+
   return (
-    <form className="my-5 mb-4 d-flex justify-content-center align-items-center gap-3">
+    <form className="my-5 mb-5 d-flex justify-content-center align-items-center gap-3">
       <input
         onChange={(e) => setIsChecked(e.target.checked)}
         id="terms"
@@ -11,9 +13,25 @@ const Form = () => {
         className="form-check-input"
       />
 
-      <label htmlFor="terms">Kosullari okudum ve kabul ediyorum</label>
-      <button disabled={!isChecked} className="btn btn-primary">
-        Siparisi Onayla
+      <div className="terms-wrapper">
+        <p
+          style={{
+            visibility: isHover ? "visible" : "hidden",
+          }}
+        >
+          Size gerçekten bir şey teslim etmeyeceğiz
+        </p>
+
+        <label htmlFor="terms">Koşulları okudum ve kabul ediyorum</label>
+      </div>
+
+      <button
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+        disabled={!isChecked}
+        className="btn btn-primary"
+      >
+        Siparişi Onayla
       </button>
     </form>
   );

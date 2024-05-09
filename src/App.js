@@ -1,16 +1,17 @@
-import Form from './components/Form'
-import Scoops from './components/Scoops'
-import Toppings from './components/Toppings'
-
+import Form from './components/Form';
+import Scoops from './components/Scoops';
+import Toppings from './components/Toppings';
 
 const App = () => {
   return (
-    <div className='bg-black vh-100 text-light p-3 p-md-4'>
-      <Scoops />
-      <Toppings />
-      <Form />
+    <div className="bg-black min-vh-100 text-light p-3 py-5">
+      <div className="container">
+        <Scoops />
+        <Toppings />
+        <Form />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
